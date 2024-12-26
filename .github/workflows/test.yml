@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: ${{ ENV_NAME }}
+      name: ${{ env.ENV_NAME }}
       url: ${{ vars.ENV_URL }}
     steps:
       # Runs a single command using the runners shell
