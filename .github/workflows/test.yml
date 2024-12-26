@@ -8,15 +8,12 @@ on:
   push:
     branches: [ "test", "main" ]
 
-env:
-  ENV_NAME: ${{ github.ref == 'refs/heads/main' && 'Production' || 'Staging' }}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     environment:
-      name: ${{ env.ENV_NAME }}
+      name: ${{ github.ref == 'refs/heads/main' && 'Production' || 'Staging' }}
       url: ${{ vars.ENV_URL }}
     steps:
       # Runs a single command using the runners shell
